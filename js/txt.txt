@@ -1,0 +1,90 @@
+3Sensei Section
+
+Current: Long story about Yasmine, teaching experience, and journey.
+
+Suggestions:
+
+Break into subsections:
+
+Introduction / Greeting
+
+Credentials / Experience
+
+Teaching Philosophy
+
+Add a photo of Yasmine next to the text to make it more personal.
+
+Use quotes or highlights for emphasis, e.g.,
+
+“Theory + LOTS of practice 💪 – That’s how you succeed in Japanese!”
+
+
+5. Registration Form
+
+Current: Simple form (Name, Email, Phone) inline with text.
+
+Suggestions:
+
+Make the form stand out visually: white card on colored background or hero banner.
+
+Add field placeholders & required validation: Name*, Email*, Phone*
+
+Add a privacy note: “We respect your privacy. Your info is safe.”
+
+Optional: integrate email automation or Google Forms / HubSpot for easy registrations.
+
+6. Testimonials / Social Proof
+
+You mention 500+ students but no testimonials. Consider:
+
+Short quotes from successful students.
+
+Photos (avatars) for credibility.
+
+Example:
+
+“Thanks to Fuji, I passed JLPT N5 in just 5 days!” – Lina, Algiers
+
+7. FAQ Section
+
+Current: “What is JLPT?” etc.
+
+Suggestions:
+
+Convert into accordion-style FAQ to save space.
+
+Provide brief answers, avoid overly long paragraphs.
+
+Example:
+
+Q: How many levels are in Japanese?
+A: 5 levels – N5 (beginner) to N1 (advanced).
+
+8. Footer
+
+Current: Copyright only.
+
+Suggestions:
+
+Add bookemail, social links, and quick links for navigation.
+
+Example:
+
+“FujiforJapaneseCoaching@gmail.com
+ | Follow us on Instagram, TikTok, YouTube”
+
+Optional: small newsletter signup for future Dojo.
+
+9. Overall Content / Style Improvements
+
+Use shorter paragraphs and bullet points for readability.
+
+Keep consistent headings: Hero → Benefits → Sensei → Course → Register → FAQ.
+
+Highlight CTAs: “Register Now”, “Get Instant Access”, “Join Free Course”.
+
+Correct typos and grammar: “opportunities” (not “oppotunities”), “whether” (not “wether”), capitalize consistently.
+
+Add images or illustrations for each section for engagement.
+
+Consider mobile-first design: ensure all long paragraphs are easy to scroll.

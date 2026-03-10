@@ -1,0 +1,1395 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Noto Sans JP',sans-serif;
+color:#111;
+line-height:1.6;
+
+background-color:#f7f7f7;
+
+background-image:
+radial-gradient(circle at 25px 25px, #e9e9e9 2px, transparent 0),
+radial-gradient(circle at 75px 75px, #e9e9e9 2px, transparent 0);
+
+background-size:100px 100px;
+
+}
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+header {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.8); /* Pure white with transparency */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+/* ============================================ */
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px); /* Modern frosted glass effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    padding: 10px 0; /* Reduced height */
+}
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    width: 45px; 
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--fuji-red);
+}
+/* Optional hover effect */
+.logo:hover {
+  transform: scale(1.0);
+
+}
+
+.logo:hover img {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(180, 180, 180, 0.5);
+}
+
+/* Nav Link Refinement */
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:0%;
+height:2px;
+background:#ff3c3c;
+transition:0.35s;
+}
+
+
+.nav-links a:hover {
+    color: var(--fuji-red);
+}
+.nav-links a:hover::after{
+width:100%;
+}
+/* ==================================================================== */
+/* Nav container fix */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center; /* vertically center all links including the button */
+}
+
+/* Regular nav links */
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+  line-height: 1.5; /* ensures vertical alignment with button */
+}
+
+/* Hover underline effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3c3c;
+  transition: 0.35s;
+}
+
+.nav-links a:hover {
+  color: rgb(163, 31, 31);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* ========================= */
+/* Book a Lesson button */
+.nav-links .book-btn {
+  background: linear-gradient(135deg, #ff3c3c, #ff6666);
+  color: #fff;
+  padding: 8px 24px;      /* slightly smaller to match link height */
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255,60,60,0.3);
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.5;       /* match nav links */
+}
+
+/* Hover effects */
+.nav-links .book-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,60,60,0.5);
+  color: #fff;
+}
+
+/* Subtle shine animation */
+.nav-links .book-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.3);
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.nav-links .book-btn:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* Optional spacing from other links */
+.nav-links .book-btn {
+  margin-left: 8px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:80px;
+
+background:
+linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.8)),
+url("https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
+}
+
+.hero-content h1{
+font-size:60px;
+font-weight:700;
+margin-bottom:15px;
+letter-spacing:2px;
+}
+
+.hero-content p{
+font-size:18px;
+opacity:0.85;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 32px;
+background:#ff3c3c;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:0.35s;
+box-shadow:0 8px 30px rgba(255,60,60,0.3);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+background:#ff5555;
+box-shadow:0 10px 40px rgba(255,60,60,0.5);
+}
+
+.hero-subtext{
+margin-top:20px;
+opacity:0.7;
+}
+
+
+.section{
+padding:80px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:34px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+.benefits .section-title h2 {
+  font-size: 36px;
+  color: #413636;
+  margin-bottom: 10px;
+}
+
+.benefits .section-title p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 25px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.benefit-card h3 {
+  color: #ff4949;
+  margin-bottom: 15px;
+}
+
+.benefit-card p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* ======================================= */
+/* About seciton devider */
+/* Vertical side text (Traditional feel) */
+.side-text {
+    position: absolute;
+    left: 40px;
+    top: 20%;
+    writing-mode: vertical-rl; /* Makes text vertical */
+    text-orientation: upright;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    letter-spacing: 0.5em;
+    color: rgba(196, 0, 0, 0.15);
+    font-size: 1.2rem;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* Layout Grid for About */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.brush-title {
+    position: relative;
+    display: inline-block;
+    font-size: 2.8rem;
+    line-height: 1.1;
+}
+
+/* Subtle Brush Stroke under the title */
+.brush-title::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 150px;
+    height: 12px;
+    background: rgba(196, 0, 0, 0.1);
+    z-index: -1;
+    transform: skewX(-15deg);
+    border-radius: 20% 80% 15% 85% / 80% 20% 80% 20%; /* Organic ink shape */
+}
+
+.lead-p {
+    font-size: 1.25rem;
+    color: var(--fuji-red);
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.about-description p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.about-signature {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.about-signature img {
+    width: 30px;
+    height: 30px;
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+
+/* Vertical Divider Styling */
+.section-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: -40px 0; /* Pulls the sections closer together */
+    position: relative;
+    z-index: 5;
+}
+
+.divider-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--fuji-red), transparent);
+}
+
+.jp-stamp {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--fuji-red);
+    color: var(--fuji-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    transform: rotate(5deg); /* Slight organic tilt like a real ink stamp */
+    background: white;
+    margin: 10px 0;
+}
+
+/* Background Watermark for Video Section */
+.video-showcase {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-showcase::before {
+    content: "MOMENTS";
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.02); /* Ghost text */
+    letter-spacing: 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Modern Glass effect for the Carousel */
+.video-carousel-container {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    padding: 40px 20px;
+}
+/* ==================================== */
+/* --- Global Refinements & Roots --- */
+/* ==================================== */
+:root {
+    --fuji-red: #c40000;
+    --dark-text: #111111;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --border-soft: rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body {
+    background-color: #fcfcfc;
+    background-image: 
+        radial-gradient(circle at 2px 2px, #f0f0f0 1px, transparent 0);
+    background-size: 40px 40px; /* Subtle architectural grid */
+}
+
+/* ==================================== */
+/* --- Section Headers (Sensei Style) --- */
+/* ==================================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.jp-sub {
+    display: inline-block;
+    background: rgba(196, 0, 0, 0.05);
+    padding: 4px 15px;
+    border-radius: 4px;
+    color: var(--fuji-red);
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 0.85rem;
+    border-left: 3px solid var(--fuji-red);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.header-line {
+    width: 40px;
+    height: 3px;
+    background: var(--fuji-red);
+    margin: 20px auto;
+}
+
+/* ==================================== */
+/* --- Specialized Program Cards --- */
+/* ==================================== */
+.section {
+    padding: 120px 0 80px 0; /* Change the first value from 80px to 120px */
+}
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.program-card {
+    background: #ffffff;
+    padding: 50px 35px;
+    border-radius: 15px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.program-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 4px;
+    background: var(--fuji-red);
+    transform: scaleX(0);
+    transition: 0.4s;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.program-card:hover::after {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--fuji-red);
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* ==================================== */
+/* --- 5-Day Crash Course Timeline --- */
+/* ==================================== */
+.modern-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-step {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s;
+}
+
+.timeline-step:hover {
+    border-color: var(--fuji-red);
+    transform: translateX(10px);
+}
+
+.step-num {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(196, 0, 0, 0.08); /* Watermark effect */
+    line-height: 1;
+    flex: 0 0 80px;
+}
+
+.step-content h3 {
+    color: var(--dark-text);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.step-content p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ==================================== */
+/* ---  Event Calendar --- */
+/* ==================================== */
+.events-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+}
+
+.event-featured {
+    background: #111;
+    color: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.3), #000), url('../images/event-bg.jpg') center/cover;
+}
+.event-featured {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+.event-featured:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+}
+
+.event-tag {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: var(--fuji-red);
+    color: white;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid var(--border-soft);
+    transition: 0.3s;
+}
+
+.event-item:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--fuji-red);
+}
+
+.event-item .date {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 900;
+    color: var(--fuji-red);
+    font-size: 1.3rem;
+    margin-right: 25px;
+    min-width: 60px;
+}
+
+/* --- Download Box --- */
+.download-box {
+    grid-column: span 2;
+    background: #fff;
+    border: 2px dashed #ddd;
+    text-align: center;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.download-box i.fa-qrcode {
+    font-size: 3rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 14px 35px;
+    border: 2px solid var(--fuji-red);
+    color: var(--fuji-red);
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--fuji-red);
+    color: white;
+    box-shadow: 0 10px 20px rgba(196, 0, 0, 0.2);
+}
+
+/* ==================================== */
+/* --- Responsive Fixes --- */
+/* ==================================== */
+@media (max-width: 992px) {
+    .events-container { grid-template-columns: 1fr; }
+    .download-box { grid-column: span 1; }
+    .timeline-step { flex-direction: column; gap: 10px; }
+}
+/* ========================== */
+/*  Sensei Section - Floating Profile Look */
+/* ========================== */
+.sensei.section {
+    padding-top: 120px; /* Adjust this: Header height + extra breathing room */
+    scroll-margin-top: 80px; /* Ensures clicking 'Sensei' in nav doesn't cut it off */
+}
+
+/* Enhancing the 'Expert' sub-title */
+.sensei .jp-sub {
+    display: inline-block;
+    background: rgba(196, 0, 0, 0.05); /* Very faint red background */
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    border-left: 3px solid var(--fuji-red);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.sensei-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Updated Container for Floating Layout */
+.sensei-top {
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center;
+    gap: 60px; /* Healthy gap to prevent merging */
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 1. Sensei Photo - Small & Floating with Cool Borders */
+.sensei-photo {
+    flex: 0 0 auto; /* Do not shrink or grow */
+    width: 280px; /* Reduced size */
+    height: 280px; /* Square shape for profile look */
+    position: relative;
+    border-radius: 50%; /* Make it round (circle look) or use large border-radius like 30px for "squircle" */
+    
+    /* Layered Box Shadow for "depth" */
+    box-shadow: 
+        0 10px 30px -5px rgba(0, 0, 0, 0.1),
+        0 0 0 10px rgba(255, 255, 255, 1), /* The white inner 'border' */
+        0 0 0 12px #eeeeee; /* The light gray outer border */
+    
+    overflow: visible; /* Need this for the cool border-elements to show */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Optional squircle look if you prefer that over a circle:
+.sensei-photo {
+    border-radius: 30px;
+}
+ 
+
+/* The actual image inside the 'container' */
+.sensei-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%; /* Match parent radius */
+    filter: sepia(10%) contrast(105%); /* Subtle professional grading */
+    transition: transform 0.6s ease;
+}
+
+/* Cool Hover Styling */
+.sensei-photo:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 
+        0 20px 40px -8px rgba(0, 0, 0, 0.15),
+        0 0 0 10px rgba(255, 255, 255, 1),
+        0 0 0 12px var(--fuji-red); /* Outer border turns red on hover */
+}
+
+.sensei-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* Cool CSS-only decorative elements (optional but adds 'cool' factor) */
+.sensei-photo::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    border-top: 5px solid var(--fuji-red);
+    border-left: 5px solid var(--fuji-red);
+    border-radius: 5px;
+}
+
+.sensei-photo::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #111;
+    border-right: 5px solid #111;
+    border-radius: 5px;
+}
+
+/* 2. Sensei Greeting - The Text Box (Separate Container) */
+.sensei-greeting {
+    flex: 1; /* Takes remaining space */
+    background: rgba(255,255,255,0.05); /* Very faint background if on light bg */
+    border: 1px solid #f0f0f0;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03); /* Subtle depth */
+    position: relative;
+    background: #ffffff;
+}
+
+.sensei-greeting h3 {
+    font-size: 1.8rem;
+    color: var(--fuji-red);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.sensei-greeting p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.sensei-greeting blockquote {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff5f5;
+    border-left: 5px solid var(--fuji-red);
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 3. Audio Player (Separate styling) */
+/* Making the audio small and clean, placed below the greeting text */
+.sensei-voice {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.sensei-voice audio {
+    height: 35px;
+    width: 200px; /* Small player */
+}
+
+/* Keep the stats styling from previous suggestion for consistency */
+.sensei-stats {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 3rem;
+    color: #111;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.stat h3::after {
+    content: '+';
+    color: var(--fuji-red);
+    margin-left: 2px;
+}
+
+.stat p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #888;
+}
+
+/* Mobile Fixes for Floating Layout */
+@media (max-width: 850px) {
+    .sensei-top {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .sensei-greeting {
+        padding: 40px 25px;
+    }
+    .sensei-photo {
+        width: 200px;
+        height: 200px;
+    }
+}/* End of the sensei section */
+/* ============================ */
+
+
+
+/* ========================= */
+/* students Feedback section */
+/* ======================== */
+/* --- Feedback Section Background Decoration --- */
+.feedback {
+    position: relative;
+    padding: 100px 0;
+    background: #fff; /* Clean white background to make images pop */
+}
+
+/* Vertical "Voices" Watermark */
+.feedback::before {
+    content: "皆さんの声"; /* "Everyone's Voices" */
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.02);
+    pointer-events: none;
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- The Feedback Card Effect --- */
+.feedback-grid img {
+    width: 100%;
+    border-radius: 0; /* Sharp edges for a modern look */
+    border: 1px solid #eee;
+    padding: 10px; /* Creates a "polaroid" or framed look */
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: zoom-in;
+}
+
+/* Hover: The "Stamp of Approval" Effect */
+.feedback-grid img:hover {
+    transform: translateY(-10px) rotate(2deg); /* Organic slight tilt */
+    border-color: var(--fuji-red);
+    box-shadow: 0 20px 40px rgba(196, 0, 0, 0.1);
+}
+
+/* Adding a Decorative "Quote" icon to the grid */
+.feedback-grid::after {
+    content: "\f10d"; /* FontAwesome Quote Icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size: 3rem;
+    color: var(--fuji-red);
+    opacity: 0.1;
+}
+
+/* --- Optional: Label for the screenshots --- */
+/* This adds a tiny red "Verified" tab to the corner of each image */
+.feedback-item {
+    position: relative;
+}
+
+/* Small Japanese Badge "Verified" */
+.feedback-grid img::after {
+    content: "合格"; /* "Pass/Verified" */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--fuji-red);
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    opacity: 0;
+    transition: 0.3s;
+}
+/* ===================================== */
+/* --- Projects Layout Refinement --- */
+
+.projects {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+/* Large Background Watermark */
+.projects::after {
+    content: "作品"; 
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(196, 0, 0, 0.03); /* Faint Fuji Red */
+    z-index: -1;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 35px;
+}
+
+/* --- The Modern Origami Card --- */
+.project-card {
+    background: #ffffff;
+    border-radius: 0px; /* Sharp Japanese edges look more "Pro" */
+    overflow: hidden;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.05); /* Block shadow style */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    border: 1px solid #eee;
+}
+
+/* Corner Fold Effect */
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 40px 40px 0;
+    border-style: solid;
+    border-color: #f7f7f7 #f7f7f7 rgba(0,0,0,0.1) rgba(0,0,0,0.1);
+    z-index: 5;
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(#3a3a3a);
+    border-color: var(--fuji-red);
+}
+
+.project-card:hover::before {
+    border-color: #fff #fff var(--fuji-red) var(--fuji-red);
+}
+
+/* --- Image & Level Hover --- */
+.project-img {
+    height: 200px;
+    position: relative;
+    background: #111;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: 0.6s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+/* Level Title - Styled like a Japanese Ticket */
+.project-level {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--fuji-red);
+    color: white !important;
+    padding: 10px 20px;
+    font-size: 2rem;
+    font-weight: 900;
+    opacity: 0;
+    z-index: 10;
+    transition: 0.4s;
+    border: 2px solid white;
+}
+
+.project-card:hover .project-level {
+    opacity: 1;
+}
+
+/* --- Text & Arabic Typography --- */
+.project-info {
+    padding: 18px;
+    text-align: right; /* Aligns for Arabic content */
+}
+
+.project-info h3 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 1.2rem;
+    color: #111;
+    margin-bottom: 12px;
+    text-align: left; /* Keep titles left if they are English */
+    border-left: 4px solid var(--fuji-red);
+    padding-left: 10px;
+}
+
+.project-info p {
+    font-family: 'Noto Sans JP', 'Arial', sans-serif; /* Add a clean Arabic-friendly font if needed */
+    font-size: 0.95rem;
+    line-height: 1.2;
+    color: #444;
+    direction: rtl; /* Proper Arabic direction */
+    margin-bottom: 20px;
+}
+
+.project-info .btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #111;
+    color: #fff;
+    padding: 12px;
+    border-radius: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.project-card:hover .project-info .btn {
+    background: var(--fuji-red);
+}
+
+/* Seigaiha Pattern overlay on hover */
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 200px;
+    background-image: url('https://www.transparenttextures.com/patterns/seigaiha.png');
+    opacity: 0;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.project-card:hover::after {
+    opacity: 0.1;
+}
+/* =========================== */
+/* Reel / Video Showcase (Horizontal Scroll) */
+/* =========================== */
+/* --- Video Showcase Container --- */
+.video-showcase {
+    background: #f3f3f3d5; /* Darker background for "Cinema" feel */
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vertical Japanese Watermark: "Cinema/Moving Images" */
+.video-showcase::after {
+    content: "動画ギャラリー"; 
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+}
+
+.video-carousel-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 40px 0;
+    /* Glassmorphism effect on dark */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    scroll-behavior: smooth;
+}
+
+/* Horizontal row layout */
+.video-carousel {
+    display: flex;
+    gap: 25px;
+    padding: 0 40px;
+}
+
+/* --- The "Cinema" Video Card --- */
+.video-carousel video {
+    flex: 0 0 auto;
+    height: 400px; /* Slightly taller for more impact */
+    border-radius: 15px;
+    border: 1px solid #ffffff1a;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    filter: brightness(0.8); /* Dimmed by default */
+}
+
+.video-carousel video:hover {
+    transform: scale(1.02) translateY(-10px);
+    filter: brightness(1.1); /* Lights up on hover */
+    border-color: var(--fuji-red);
+    box-shadow: 0 30px 60px rgba(196, 0, 0, 0.3);
+}
+
+/* --- Custom Scrollbar (Sleeker) --- */
+.video-carousel-container::-webkit-scrollbar {
+    height: 8px; /* Thinner is more modern */
+}
+
+.video-carousel-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0 100px; /* Gives the scrollbar space at the ends */
+}
+
+.video-carousel-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #600, var(--fuji-red), #600);
+    border-radius: 10px;
+}
+
+/* --- Mobile Fixes --- */
+@media(max-width:768px){
+    .video-carousel video {
+        height: 280px;
+    }
+    .video-showcase::after {
+        font-size: 2rem;
+        left: 5px;
+    }
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #050505;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vertical Decorative Watermark */
+.footer::after {
+    content: "富士日本語"; /* Fuji Japanese */
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 15px;
+    pointer-events: none;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Elegant Brand Style (Removed Sharp Box) */
+.footer-brand h3 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 1px; color: #eee; }
+/* The "Zen Line" Decoration */
+.footer-brand h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff3c3c, transparent);
+}
+
+.footer-brand p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+/* --- Social Icons (Keeping the Cool Hover) --- */
+.footer-social {
+    display: flex;
+    gap: 18px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Back to soft circles */
+    background: rgba(255, 255, 255, 0.03);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fancy Hover with Glows */
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    color: white;
+    border-color: transparent;
+}
+
+/* Specific Brand Colors on Hover */
+.social-icon:nth-child(1):hover { background: #1877F2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.4); }
+.social-icon:nth-child(2):hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icon:nth-child(3):hover { background: #FF0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+.social-icon:nth-child(4):hover { background: #25D366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+.social-icon:nth-child(5):hover { background: #229ED9; box-shadow: 0 0 20px rgba(34, 158, 217, 0.4); }
+
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 2px; color: #9c9a9a27; }
+
+.dev span {
+    color: #ff3c3c;
+    font-weight: 600;
+}
+/* =========================================================== */
+/* --- Desktop (PC) View --- */
+.menu-btn {
+    display: none; /* This hides the ☰ on PC */
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* This makes it appear ONLY on phones */
+        cursor: pointer;
+        font-size: 28px;
+        color: #111;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen */
+        height: 100vh;
+        width: 250px;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: flex; 
+        transition: 0.4s ease;
+    }
+
+    .nav-links.active {
+        right: 0; /* Slides in when clicked */
+    }
+}

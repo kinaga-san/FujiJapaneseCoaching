@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif;
+    background: #0b0b0c; /* Deep obsidian */
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(15px); /* Increased blur for premium feel */
+    background: rgba(10, 10, 10, 0.6); 
+    border-bottom: 1px solid rgba(255, 60, 60, 0.15); /* Subtle Fuji Red border */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0; /* Slightly tighter for a sleeker profile */
+}
+
+/* --- Precision Logo Style --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 3px; /* Wider tracking for Japanese branding */
+    font-size: 1.1rem;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.logo img {
+      border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(228, 29, 29, 0.521);
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The "Seal" Hover Effect */
+.logo:hover img {
+    transform: rotate(90deg); /* Modern mechanical rotation */
+    border-color: #ff3c3c;
+    box-shadow: 0 0 15px rgba(255, 60, 60, 0.4);
+    background: rgba(255, 60, 60, 0.1);
+}
+
+.logo strong {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+/* ==================================================================== */
+/* ------------------- */
+/* Nav container fix */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center; /* vertically center all links including the button */
+}
+
+/* Regular nav links */
+.nav-links a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+  line-height: 1.5; /* ensures vertical alignment with button */
+}
+
+/* Hover underline effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3c3c;
+  transition: 0.35s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================= */
+/* Book a Lesson button */
+.nav-links .book-btn {
+  background: linear-gradient(135deg, #ff3c3c, #ff6666);
+  color: #fff;
+  padding: 8px 24px;      /* slightly smaller to match link height */
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255,60,60,0.3);
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.5;       /* match nav links */
+}
+
+/* Hover effects */
+.nav-links .book-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,60,60,0.5);
+  color: #fff;
+}
+
+/* Subtle shine animation */
+.nav-links .book-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.3);
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.nav-links .book-btn:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* Optional spacing from other links */
+.nav-links .book-btn {
+  margin-left: 8px;
+}
+/* ========================================== */
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:80px;
+
+ background:
+    linear-gradient(rgba(24, 21, 21, 0.55), rgba(36, 33, 33, 0.75)),
+    url("")
+      center/cover no-repeat;
+}
+
+.hero-content h1{
+font-size:60px;
+font-weight:700;
+margin-bottom:15px;
+letter-spacing:2px;
+}
+
+.hero-content p{
+font-size:18px;
+opacity:0.85;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 32px;
+background:#ff3c3c;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:0.35s;
+box-shadow:0 8px 30px rgba(255,60,60,0.3);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+background:#ff5555;
+box-shadow:0 10px 40px rgba(255,60,60,0.5);
+}
+
+.hero-subtext{
+margin-top:20px;
+opacity:0.7;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+padding:100px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.section-title p{
+opacity:0.7;
+}
+
+/* ================= STATS ================= */
+
+.sensei-stats{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-bottom:60px;
+}
+
+.stat{
+text-align:center;
+}
+
+.stat h3{
+font-size:42px;
+color:#ff3c3c;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:30px;
+border-radius:18px;
+transition:0.35s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent);
+opacity:0;
+transition:0.4s;
+}
+
+.card:hover::before{
+opacity:1;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:rgba(255,60,60,0.3);
+}
+
+.card h3{
+margin-bottom:12px;
+font-size:20px;
+}
+/* --- Carousel Wrapper --- */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+  padding: 20px 0;
+}
+
+/* Track containing cards */
+.carousel-track {
+  display: flex;
+  gap: 25px; /* Slightly wider gap for modern feel */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 30px 10px;
+  align-items: stretch; /* Makes all cards same height */
+}
+
+/* Hide scrollbar for a clean look */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- The Modern "Square" Card --- */
+.carousel-track .card {
+  width: 300px;
+  min-height: 300px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.02); /* Very subtle glass */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0; /* REMOVED rounded corners for that sharp Japanese aesthetic */
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Left-aligned text looks more editorial */
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Red Accent Line on hover */
+.carousel-track .card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #ff3c3c;
+  transition: 0.4s;
+}
+
+.carousel-track .card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 60, 60, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-track .card:hover::after {
+  width: 100%;
+}
+
+/* Ghost Numbering Support */
+.card-num {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: #ff3c3c;
+  opacity: 0.04; /* Very faint ghost effect */
+  transition: 0.4s;
+}
+
+.carousel-track .card:hover .card-num {
+  opacity: 0.12;
+  transform: scale(1.1);
+}
+
+/* Card Typography */
+.carousel-track .card h3 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 15px;
+  z-index: 1;
+}
+
+.carousel-track .card p {
+  font-size: 15px;
+  color: #bbb;
+  line-height: 1.6;
+  z-index: 1;
+}
+
+/* --- Sleeker Navigation Buttons --- */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 100%; /* Full height but invisible background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s;
+  background: transparent;
+  border: none;
+}
+
+.carousel-btn:hover {
+  color: #ff3c3c;
+  background: linear-gradient(to left, rgba(0,0,0,0.8), transparent) !important;
+}
+
+.carousel-btn.left { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.4), transparent); }
+.carousel-btn.right { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.4), transparent); }
+
+/* --- Responsive Tuning --- */
+@media (max-width: 768px) {
+  .carousel-track .card { 
+    width: 260px; 
+    min-height: 260px; 
+    padding: 30px 20px;
+  }
+  .carousel-btn { width: 40px; font-size: 24px; }
+  .card-num { font-size: 2.5rem; }
+}
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #050505;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vertical Decorative Watermark */
+.footer::after {
+    content: "富士日本語"; /* Fuji Japanese */
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 15px;
+    pointer-events: none;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Elegant Brand Style (Removed Sharp Box) */
+.footer-brand h3 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 1px; color: #eee; }
+/* The "Zen Line" Decoration */
+.footer-brand h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff3c3c, transparent);
+}
+
+.footer-brand p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+/* --- Social Icons (Keeping the Cool Hover) --- */
+.footer-social {
+    display: flex;
+    gap: 18px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Back to soft circles */
+    background: rgba(255, 255, 255, 0.03);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fancy Hover with Glows */
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    color: white;
+    border-color: transparent;
+}
+
+/* Specific Brand Colors on Hover */
+.social-icon:nth-child(1):hover { background: #1877F2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.4); }
+.social-icon:nth-child(2):hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icon:nth-child(3):hover { background: #FF0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+.social-icon:nth-child(4):hover { background: #25D366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+.social-icon:nth-child(5):hover { background: #229ED9; box-shadow: 0 0 20px rgba(34, 158, 217, 0.4); }
+
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 2px; color: #9c9a9a27; }
+
+.dev span {
+    color: #ff3c3c;
+    font-weight: 600;
+}
+
+/* ======================================== */
+
+/* ======================================================= */
+/* --- Desktop: Hide menu btn --- */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 1001; /* Stay above the menu */
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the button on phones */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide it off-screen to the right */
+        height: 100vh;
+        width: 250px;
+        background: rgba(10, 10, 10, 0.98); /* Dark Japanese aesthetic */
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    /* This is what the JavaScript triggers */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+    }
+
+    .nav-links .book-btn {
+        margin-left: 0; /* Reset desktop margin */
+    }
+}
