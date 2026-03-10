@@ -1,339 +1,824 @@
-// ================================================
-// 1. MOBILE MENU SYSTEM 
-// ================================================
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
 
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuBtn.innerHTML = '☰';
-            });
-        });
-    }
-});
-// ================================================
-// AUTO-TYPER + TRANSLATION SYSTEM 
-// ================================================
-
-const phrasesEN = [
-  "Join our FREE 5-day crash course and start speaking Japanese with confidence.",
-  "Master Japanese basics quickly with expert guidance.",
-  "Unlock Japanese culture and communication in just 5 days.",
-  "Step into the world of Japanese language with ease."
-];
-
-let phrases = phrasesEN;
-let phraseIndex = 0;
-let charIndex = 0;
-let typing = true;
-let typingTimeout; // store timeout so we can clear it
-
-const rotatingText = document.getElementById("rotating-text");
-
-function typeWriter() {
-  if (!rotatingText) return;
-
-  const currentPhrase = phrases[phraseIndex];
-
-  if (typing) {
-    rotatingText.textContent = currentPhrase.slice(0, charIndex + 1);
-    charIndex++;
-
-    if (charIndex === currentPhrase.length) {
-      typing = false;
-      typingTimeout = setTimeout(typeWriter, 1500); // pause before deleting
-      return;
-    }
-  } else {
-    rotatingText.textContent = currentPhrase.slice(0, charIndex - 1);
-    charIndex--;
-
-    if (charIndex === 0) {
-      typing = true;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-    }
-  }
-
-  // SLOWER SPEED
-  // typing = true => typing letters
-  // typing = false => deleting letters
-  typingTimeout = setTimeout(typeWriter, typing ? 50 : 40); 
+:root {
+    --fuji-red: #c40000;
+    --dark-text: #111111;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --border-soft: rgba(0, 0, 0, 0.06);
 }
 
-// Start typing
-typeWriter();
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+    background-color: #fcfcfc;
+    background-image: radial-gradient(circle at 2px 2px, #54a10bf3 1px, transparent 0);
+    background-size: 40px 40px;
+}
+/* ================= NAVBAR ================= */
 
-// ================================================
-// 2. COUNTER ANIMATION
-// ================================================
-const counters = document.querySelectorAll(".counter");
+header {
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.911);
+    padding: 10px 0;
+}
 
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute("data-target");
-        const count = +counter.innerText;
-        
-        // 1. Calculate a smooth increment 
-        // We use Math.max to ensure it always moves at least by 1
-        const increment = Math.ceil(target / 50); 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        // 2. Dynamic Speed Logic
-        let delay;
-        if (target <= 10) {
-            delay = 310; // Very slow (0.5s) for small numbers like 2 or 10
-        } else if (target > 50) {
-            delay = 80;  // Very speedy for high numbers
-        } else {
-            delay = 100; // Balanced speed for numbers in between
-        }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0; /* Slightly tighter for a sleeker profile */
+}
 
-        if (count < target) {
-            // Update the text
-            counter.innerText = count + increment;
-            
-            // If we accidentally go over target due to increment, fix it
-            if (+counter.innerText > target) {
-                counter.innerText = target;
-            }
+/* --- Precision Logo Style --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 3px; /* Wider tracking for Japanese branding */
+    font-size: 1.1rem;
+    color: #1a1a1a; /* Darken text */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
 
-            // Call the function again with our dynamic delay
-            setTimeout(updateCount, delay);
-        } else {
-            counter.innerText = target;
-        }
-    };
+.logo img {
+      border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(228, 29, 29, 0.521);
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.233);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The "Seal" Hover Effect */
+.logo:hover img {
+    transform: rotate(90deg); /* Modern mechanical rotation */
+    border-color: #ff3c3c;
+    box-shadow: 0 0 15px rgba(255, 60, 60, 0.4);
+    background: rgba(255, 192, 192, 0.753);
+}
+
+.logo strong {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px); /* Modern frosted glass effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    padding: 10px 0; /* Reduced height */
+}
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    width: 45px; 
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--fuji-red);
+}
+/* Optional hover effect */
+.logo:hover {
+  transform: scale(1.0);
+
+}
+
+.logo:hover img {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(180, 180, 180, 0.5);
+}
+
+/* Nav Link Refinement */
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:0%;
+height:2px;
+background:#ff3c3c;
+transition:0.35s;
+}
+
+
+.nav-links a:hover {
+    color: var(--fuji-red);
+}
+.nav-links a:hover::after{
+width:100%;
+}
+/* ==================================================================== */
+/* Nav container fix */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center; /* vertically center all links including the button */
+}
+
+/* Regular nav links */
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+  line-height: 1.5; /* ensures vertical alignment with button */
+}
+
+/* Hover underline effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3c3c;
+  transition: 0.35s;
+}
+
+.nav-links a:hover {
+  color: rgb(163, 31, 31);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* ========================= */
+/* Book a Lesson button */
+.nav-links .book-btn {
+  background: linear-gradient(135deg, #ff3c3c, #ff6666);
+  color: #fff;
+  padding: 8px 24px;      /* slightly smaller to match link height */
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255,60,60,0.3);
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.5;       /* match nav links */
+}
+
+/* Hover effects */
+.nav-links .book-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,60,60,0.5);
+  color: #fff;
+}
+
+/* Subtle shine animation */
+.nav-links .book-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.3);
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.nav-links .book-btn:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* Optional spacing from other links */
+.nav-links .book-btn {
+  margin-left: 8px;
+}
+/* ========================================== */
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:80px;
+
+ background:
+    linear-gradient(rgba(224, 218, 218, 0.55), rgba(250, 211, 211, 0.75)),
+    url("")
+      center/cover no-repeat;
+}
+
+.hero-content h1{
+font-size:60px;
+font-weight:700;
+margin-bottom:15px;
+letter-spacing:2px;
+}
+
+.hero-content p{
+font-size:18px;
+opacity:0.85;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 32px;
+background:#ff3c3c;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:0.35s;
+box-shadow:0 8px 30px rgba(255,60,60,0.3);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+background:#ff5555;
+box-shadow:0 10px 40px rgba(255,60,60,0.5);
+}
+
+.hero-subtext{
+margin-top:20px;
+opacity:0.7;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+padding:100px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.section-title p{
+opacity:0.7;
+}
+
+/* ================= STATS ================= */
+/* ================= STATS BAR UPGRADED ================= */
+
+.stats-bar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 60px 0; /* Balanced padding */
+}
+
+.sensei-stats {
+    display: flex;
+    justify-content: space-around; /* Spreads them evenly */
+    align-items: center;
+    flex-wrap: wrap; /* Good for mobile */
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+}
+
+/* The Animated Number */
+.stat h3 {
+    font-size: 3.5rem; /* Larger, bolder impact */
+    font-weight: 800;
+    color: var(--fuji-red);
+    margin-bottom: 5px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    display: inline-block;
+}
+
+/* The "+" Sign - Clean & Professional */
+.stat h3::after {
+    content: '+';
+    font-size: 2rem;
+    vertical-align: super;
+    margin-left: 4px;
+    color: var(--dark-text); /* Darker + for a sophisticated look */
+    opacity: 0.6;
+}
+
+/* The Label Text */
+.stat p {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
+}
+
+/* Decorative Divider (Desktop Only) */
+@media (min-width: 769px) {
+    .stat:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, var(--border-soft), transparent);
+    }
+}
+
+/* Mobile Tuning */
+@media (max-width: 768px) {
+    .sensei-stats {
+        gap: 20px;
+    }
+    .stat h3 {
+        font-size: 2.5rem;
+    }
+}
+/* ================= GRID ================= */
+/* ================= GRID & CAROUSEL SYSTEM ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.carousel-wrapper {
+     position: relative;
+    z-index: 1;
+    margin: 40px 0;
+    padding: 20px 0;
+}
+/* Track: Fixed for Responsiveness */
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 50px 20px;
+    align-items: stretch;
+    perspective: 1200px;
+    -webkit-overflow-scrolling: touch; /* Smooth mobile swipe */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+/* The Modern 3D Card */
+.carousel-track .card, .grid .card {
+    width: 300px;
+    min-height: 300px;
+    flex: 0 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    padding: 40px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 3D Hover Effect */
+.carousel-track .card:hover, .grid .card:hover {
+    transform: translateY(-15px) rotateX(4deg) scale(1.02);
+    border-color: var(--fuji-red);
+    box-shadow: 0 30px 60px rgba(196, 0, 0, 0.15);
+}
+
+/* Red Accent Line */
+.carousel-track .card::after, .grid .card::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: var(--fuji-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.carousel-track .card:hover::after, .grid .card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Parallax Text */
+.card h3, .card p {
+    transform: translateZ(30px);
+    transition: transform 0.5s ease;
+}
+
+.card:hover h3 {
+    color: var(--fuji-red);
+    transform: translateZ(50px);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.3);
+    z-index: 100 !important; 
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    background: transparent;
+    border: none;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    color: var(--fuji-red);
+    background: linear-gradient(to var(--dir, left), rgba(255,255,255,0.8), transparent);
+}
+
+.carousel-btn.left { left: 0; --dir: right; }
+.carousel-btn.right { right: 0; --dir: left; }
+
+/* ================= RESPONSIVE FIX ================= */
+@media (max-width: 768px) {
+    .carousel-track {
+        gap: 15px;
+        padding: 30px 10px;
+    }
     
-    updateCount();
-});
+    .carousel-track .card {
+        width: 280px; /* Fixed width for mobile stability */
+        min-height: 250px;
+        padding: 30px 20px;
+        transform: none !important; /* Disable 3D on mobile for performance */
+    }
 
-// ================================================
-// 3. SCROLL REVEAL (FADE-IN)
-// ================================================
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    .carousel-btn {
+        display: none; /* Hide buttons; users prefer swiping on mobile */
+    }
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-    });
-}, appearOptions);
+    .card h3 { font-size: 1.2rem; }
+}
+/* ================= FOOTER ================= */
 
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// ================================================
-// 4. VIDEO CAROUSEL (About Page)
-// ================================================
-const videos = document.querySelectorAll(".carousel-video");
-if (videos.length > 0) {
-    let current = 0;
-    let sequenceStarted = false;
-
-    const playVideo = (index) => {
-        videos.forEach(v => { v.pause(); v.currentTime = 0; });
-        current = index;
-        videos[current].play();
-    };
-
-    const handleVideoEnd = () => {
-        current = (current + 1) % videos.length;
-        playVideo(current);
-    };
-
-    videos.forEach((video, index) => {
-        video.addEventListener("ended", handleVideoEnd);
-        video.addEventListener("click", () => {
-            videos.forEach(v => v.muted = false);
-            playVideo(index);
-        });
-    });
-
-    document.addEventListener('click', () => {
-        if (!sequenceStarted) {
-            sequenceStarted = true;
-            videos.forEach(v => v.muted = false);
-            playVideo(current);
-        }
-    }, { once: true });
+.footer {
+    background: #050505;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-// ================================================
-// 5. dojo FIREWORKS & AUDIO (dojo Page)
-// ================================================
-document.addEventListener('DOMContentLoaded', () => {
-    const dojoSection = document.querySelector('.programs-section'); 
-    if (!dojoSection) return;
-
-    const fireworksCanvas = document.createElement('canvas');
-    fireworksCanvas.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; display:none;";
-    document.body.appendChild(fireworksCanvas);
-    const ctx = fireworksCanvas.getContext("2d");
-
-    let fireworks = [];
-    let hasPlayed = false;
-
-    function resize() {
-        fireworksCanvas.width = window.innerWidth;
-        fireworksCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Firework {
-        constructor() {
-            this.x = Math.random() * window.innerWidth;
-            this.y = window.innerHeight;
-            this.targetY = Math.random() * (window.innerHeight / 2);
-            this.exploded = false;
-            this.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
-            this.particles = [];
-        }
-        update() {
-            if (!this.exploded) {
-                this.y -= 4;
-                if (this.y <= this.targetY) {
-                    this.exploded = true;
-                    for (let i = 0; i < 30; i++) {
-                        this.particles.push({
-                            x: this.x, y: this.y,
-                            vx: (Math.random() - 0.5) * 6, vy: (Math.random() - 0.5) * 6,
-                            alpha: 1
-                        });
-                    }
-                }
-            } else {
-                this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.alpha -= 0.02; });
-                this.particles = this.particles.filter(p => p.alpha > 0);
-            }
-        }
-        draw() {
-            if (!this.exploded) {
-                ctx.fillStyle = this.color;
-                ctx.fillRect(this.x, this.y, 3, 3);
-            } else {
-                this.particles.forEach(p => {
-                    ctx.globalAlpha = p.alpha;
-                    ctx.fillStyle = this.color;
-                    ctx.fillRect(p.x, p.y, 2, 2);
-                });
-                ctx.globalAlpha = 1;
-            }
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
-        fireworks.forEach((fw, i) => {
-            fw.update();
-            fw.draw();
-            if (fw.exploded && fw.particles.length === 0) fireworks.splice(i, 1);
-        });
-        requestAnimationFrame(animate);
-    }
-
-    const dojoObserver = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && !hasPlayed) {
-            hasPlayed = true;
-            fireworksCanvas.style.display = "block";
-            animate();
-            let interval = setInterval(() => fireworks.push(new Firework()), 400);
-            const audio = new Audio("audio/voice.mp3");
-            audio.play().catch(() => {});
-            setTimeout(() => { clearInterval(interval); }, 5000);
-        }
-    }, { threshold: 0.5 });
-
-    dojoObserver.observe(dojoSection);
-});
-
-// =// ================================================
-// 6. FIXED INFINITE CAROUSEL + WORKING BUTTONS
-// ================================================
-const track = document.querySelector(".carousel-track");
-const btnLeft = document.querySelector(".carousel-btn.left");
-const btnRight = document.querySelector(".carousel-btn.right");
-
-if (track) {
-    let isPaused = false;
-    let resumeTimeout;
-
-    // 1. Clone cards for the infinite loop
-    const cards = Array.from(track.children);
-    cards.forEach(card => track.appendChild(card.cloneNode(true)));
-
-    // 2. The Auto-Scroll Function
-    function step() {
-        if (!isPaused) {
-            track.scrollLeft += 1;
-            if (track.scrollLeft >= track.scrollWidth / 2) {
-                track.scrollLeft = 0;
-            }
-        }
-        requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-
-    // 3. Button Logic
-    const handleButtonClick = (direction) => {
-        isPaused = true;
-        clearTimeout(resumeTimeout);
-        const jump = 330; 
-        
-        track.scrollBy({
-            left: direction === 'left' ? -jump : jump,
-            behavior: 'smooth'
-        });
-
-        resumeTimeout = setTimeout(() => { isPaused = false; }, 2000);
-    };
-
-    if (btnLeft) btnLeft.addEventListener("click", () => handleButtonClick('left'));
-    if (btnRight) btnRight.addEventListener("click", () => handleButtonClick('right'));
-
-    // 4. Desktop Pause
-    track.addEventListener("mouseenter", () => isPaused = true);
-    track.addEventListener("mouseleave", () => isPaused = false);
-
-    // 5. PHONE/MOBILE TOUCH FIX
-    // Pauses auto-scroll when user touches/swipes with finger
-    track.addEventListener("touchstart", () => {
-        isPaused = true;
-        clearTimeout(resumeTimeout);
-    }, { passive: true });
-
-    track.addEventListener("touchend", () => {
-        resumeTimeout = setTimeout(() => { isPaused = false; }, 2000);
-    }, { passive: true });
+/* Vertical Decorative Watermark */
+.footer::after {
+    content: "富士日本語"; /* Fuji Japanese */
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 15px;
+    pointer-events: none;
 }
-    // ===============================================================
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('teacherModal');
-    const registerBtn = document.getElementById('register-btn'); // Matches the new ID
-    const closeBtn = document.querySelector('.close-modal');
 
-    if(registerBtn) {
-        registerBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.style.display = 'flex';
-        });
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Elegant Brand Style (Removed Sharp Box) */
+.footer-brand h3 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 1px; color: #eee; }
+/* The "Zen Line" Decoration */
+.footer-brand h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff3c3c, transparent);
+}
+
+.footer-brand p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+/* --- Social Icons (Keeping the Cool Hover) --- */
+.footer-social {
+    display: flex;
+    gap: 18px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Back to soft circles */
+    background: rgba(255, 255, 255, 0.03);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fancy Hover with Glows */
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    color: white;
+    border-color: transparent;
+}
+
+/* Specific Brand Colors on Hover */
+.social-icon:nth-child(1):hover { background: #1877F2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.4); }
+.social-icon:nth-child(2):hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icon:nth-child(3):hover { background: #FF0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+.social-icon:nth-child(4):hover { background: #25D366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+.social-icon:nth-child(5):hover { background: #229ED9; box-shadow: 0 0 20px rgba(34, 158, 217, 0.4); }
+
+.dev { margin-top: 20px; font-size: 0.8rem; opacity: 1; letter-spacing: 2px; color: #9c9a9a27; }
+
+.dev span {
+    color: #ff3c3c;
+    font-weight: 600;
+}
+
+/* ======================================== */
+
+/* ======================================================= */
+/* --- Desktop: Hide menu btn --- */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 1001; /* Stay above the menu */
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the button on phones */
     }
 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide it off-screen to the right */
+        height: 100vh;
+        width: 250px;
+        background: rgba(10, 10, 10, 0.98); /* Dark Japanese aesthetic */
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-});
+    /* This is what the JavaScript triggers */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+    }
+
+    .nav-links .book-btn {
+        margin-left: 0; /* Reset desktop margin */
+    }
+}
+
+/* ================================================================ */
+/* ========================= */
+/* Modal Overlay */
+/* ========================= */
+
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(208, 208, 208, 0.071);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Teacher Grid */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.teacher-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+    background: #fdfdfd;
+}
+
+.teacher-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #ff4d4d; 
+}
+
+.teacher-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #fb3e3e;
+    box-shadow: 0 10px 20px rgba(205, 67, 67, 0.1);
+}
+
+.teacher-info h3 { margin-bottom: 10px; }
+.teacher-info p { font-size: 0.9rem; color: #666; margin: 5px 0; }
+/* ================================== */
+/* Training Modal Specifics */
+/* ====================================== */
+.training-theme h2 {
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.modal-intro {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.single-option {
+    display: flex;
+    justify-content: center;
+}
+.training-card {
+    position: relative;
+    border: 2px solid #2d3436 !important;
+    max-width: 420px;
+    background: #fff;
+    overflow: hidden;
+    padding: 15px; /* Reduced from 20px to bring elements closer to the edges */
+}
+
+.training-badge {
+    position: absolute;
+    top: 33px;
+    right: -40px;
+    background: #ff4d4d;
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.label-trained {
+    display: inline-block;
+    background: #e1f5fe;
+    color: #039be5;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.program-details {
+    text-align: left;
+    margin: 15px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.program-details p {
+    font-size: 0.85rem !important;
+    margin: 8px 0 !important;
+    color: #444;
+}
+
+.program-details i {
+    color: #ff4d4d;
+    width: 20px;
+}
+
+.training-btn {
+    width: 100%;
+    background: #f83939dd; /* Dark professional button */
+    border-radius: 8px;
+}
+
+.training-btn:hover {
+    background: #000;
+}
+.dev-link { text-decoration: none; transition: 0.3s; color: var(--fuji-red); font-weight: 600; letter-spacing: 2px; } .dev-link:hover { color: #fff; text-shadow: 0 0 8px var(--fuji-red); }
