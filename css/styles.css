@@ -1,45 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+    --fuji-red: #c40000;
+    --dark-text: #111111;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --border-soft: rgba(0, 0, 0, 0.06);
 }
 
-body{
-
-font-family:'Noto Sans JP',sans-serif;
-color:#111;
-line-height:1.6;
-
-background-color:#f7f7f7;
-
-background-image:
-radial-gradient(circle at 25px 25px, #e9e9e9 2px, transparent 0),
-radial-gradient(circle at 75px 75px, #e9e9e9 2px, transparent 0);
-
-background-size:100px 100px;
-
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+    background-color: #fcfcfc;
+    background-image: radial-gradient(circle at 2px 2px, #54a10bf3 1px, transparent 0);
+    background-size: 40px 40px;
 }
-a{
-text-decoration:none;
-color:inherit;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
+/* ================= NAVBAR ================= */
 
 header {
+    background: rgba(255, 255, 255, 0.8); 
     backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.8); /* Pure white with transparency */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.911);
+    padding: 10px 0;
 }
-/* ============================================ */
-/* ================= NAVBAR ================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0; /* Slightly tighter for a sleeker profile */
+}
+
+/* --- Precision Logo Style --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 3px; /* Wider tracking for Japanese branding */
+    font-size: 1.1rem;
+    color: #1a1a1a; /* Darken text */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.logo img {
+      border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(228, 29, 29, 0.521);
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.233);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The "Seal" Hover Effect */
+.logo:hover img {
+    transform: rotate(90deg); /* Modern mechanical rotation */
+    border-color: #ff3c3c;
+    box-shadow: 0 0 15px rgba(255, 60, 60, 0.4);
+    background: rgba(255, 192, 192, 0.753);
+}
+
+.logo strong {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
 
 header {
     position: fixed;
@@ -207,7 +237,7 @@ width:100%;
 .nav-links .book-btn {
   margin-left: 8px;
 }
-
+/* ========================================== */
 /* ================= HERO ================= */
 
 .hero{
@@ -217,6 +247,11 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding-top:80px;
+
+ background:
+    linear-gradient(rgba(224, 218, 218, 0.55), rgba(250, 211, 211, 0.75)),
+    url("")
+      center/cover no-repeat;
 }
 
 .hero-content h1{
@@ -255,651 +290,82 @@ margin-top:20px;
 opacity:0.7;
 }
 
+/* ================= SECTION ================= */
 
 .section{
-padding:80px 0;
+padding:100px 0;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 .section-title h2{
-font-size:34px;
+font-size:36px;
+margin-bottom:10px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+.section-title p{
+opacity:0.7;
 }
-.benefits .section-title h2 {
-  font-size: 36px;
-  color: #413636;
-  margin-bottom: 10px;
-}
-
-.benefits .section-title p {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 50px;
-}
-
-.benefit-card {
-  text-align: center;
-  padding: 25px;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.benefit-card h3 {
-  color: #ff4949;
-  margin-bottom: 15px;
-}
-
-.benefit-card p {
-  color: #555;
-  font-size: 16px;
-  line-height: 1.6;
-}
-/* ======================================= */
-/* About seciton devider */
-/* Vertical side text (Traditional feel) */
-.side-text {
-    position: absolute;
-    left: 40px;
-    top: 20%;
-    writing-mode: vertical-rl; /* Makes text vertical */
-    text-orientation: upright;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    letter-spacing: 0.5em;
-    color: rgba(196, 0, 0, 0.15);
-    font-size: 1.2rem;
-    font-weight: 700;
-    pointer-events: none;
-}
-
-/* Layout Grid for About */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.brush-title {
-    position: relative;
-    display: inline-block;
-    font-size: 2.8rem;
-    line-height: 1.1;
-}
-
-/* Subtle Brush Stroke under the title */
-.brush-title::before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 150px;
-    height: 12px;
-    background: rgba(196, 0, 0, 0.1);
-    z-index: -1;
-    transform: skewX(-15deg);
-    border-radius: 20% 80% 15% 85% / 80% 20% 80% 20%; /* Organic ink shape */
-}
-
-.lead-p {
-    font-size: 1.25rem;
-    color: var(--fuji-red);
-    font-weight: 500;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.about-description p {
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.about-signature {
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: #999;
-}
-
-.about-signature img {
-    width: 30px;
-    height: 30px;
-    filter: grayscale(1);
-    opacity: 0.5;
-}
-
-
-/* Vertical Divider Styling */
-.section-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: -40px 0; /* Pulls the sections closer together */
-    position: relative;
-    z-index: 5;
-}
-
-.divider-line {
-    width: 2px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--fuji-red), transparent);
-}
-
-.jp-stamp {
-    width: 45px;
-    height: 45px;
-    border: 2px solid var(--fuji-red);
-    color: var(--fuji-red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    transform: rotate(5deg); /* Slight organic tilt like a real ink stamp */
-    background: white;
-    margin: 10px 0;
-}
-
-/* Background Watermark for Video Section */
-.video-showcase {
-    position: relative;
-    overflow: hidden;
-}
-
-.video-showcase::before {
-    content: "MOMENTS";
-    position: absolute;
-    top: 50%;
-    right: -50px;
-    transform: translateY(-50%) rotate(90deg);
-    font-size: 8rem;
-    font-weight: 900;
-    color: rgba(0,0,0,0.02); /* Ghost text */
-    letter-spacing: 20px;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Modern Glass effect for the Carousel */
-.video-carousel-container {
-    background: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    padding: 40px 20px;
-}
-/* ==================================== */
-/* --- Global Refinements & Roots --- */
-/* ==================================== */
-:root {
-    --fuji-red: #c40000;
-    --dark-text: #111111;
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --border-soft: rgba(0, 0, 0, 0.06);
-    --shadow-sm: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-body {
-    background-color: #fcfcfc;
-    background-image: 
-        radial-gradient(circle at 2px 2px, #f0f0f0 1px, transparent 0);
-    background-size: 40px 40px; /* Subtle architectural grid */
-}
-
-/* ==================================== */
-/* --- Section Headers (Sensei Style) --- */
-/* ==================================== */
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.jp-sub {
-    display: inline-block;
-    background: rgba(196, 0, 0, 0.05);
-    padding: 4px 15px;
-    border-radius: 4px;
-    color: var(--fuji-red);
-    font-weight: 700;
-    letter-spacing: 4px;
-    font-size: 0.85rem;
-    border-left: 3px solid var(--fuji-red);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.header-line {
-    width: 40px;
-    height: 3px;
-    background: var(--fuji-red);
-    margin: 20px auto;
-}
-
-/* ==================================== */
-/* --- Specialized Program Cards --- */
-/* ==================================== */
-.section {
-    padding: 120px 0 80px 0; /* Change the first value from 80px to 120px */
-}
-.programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.program-card {
-    background: #ffffff;
-    padding: 50px 35px;
-    border-radius: 15px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.program-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 4px;
-    background: var(--fuji-red);
-    transform: scaleX(0);
-    transition: 0.4s;
-}
-
-.program-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-}
-
-.program-card:hover::after {
-    transform: scaleX(1);
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    color: var(--fuji-red);
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
-
-/* ==================================== */
-/* --- 5-Day Crash Course Timeline --- */
-/* ==================================== */
-.modern-timeline {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    padding: 20px 0;
-}
-
-.timeline-step {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 30px;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-sm);
-    transition: 0.3s;
-}
-
-.timeline-step:hover {
-    border-color: var(--fuji-red);
-    transform: translateX(10px);
-}
-
-.step-num {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: rgba(196, 0, 0, 0.08); /* Watermark effect */
-    line-height: 1;
-    flex: 0 0 80px;
-}
-
-.step-content h3 {
-    color: var(--dark-text);
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.step-content p {
-    color: #666;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-/* ==================================== */
-/* ---  Event Calendar --- */
-/* ==================================== */
-.events-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 30px;
-}
-
-.event-featured {
-    background: #111;
-    color: white;
-    padding: 60px 40px;
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 400px;
-    background: linear-gradient(rgba(0,0,0,0.3), #000), url('../images/event-bg.jpg') center/cover;
-}
-.event-featured {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    cursor: pointer;
-}
-
-.event-featured:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 20px rgba(0,0,0,0.2);
-}
-
-.event-tag {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    background: var(--fuji-red);
-    color: white;
-    padding: 6px 18px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.event-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.event-item {
-    display: flex;
-    align-items: center;
-    padding: 25px;
-    background: white;
-    border-radius: 15px;
-    border: 1px solid var(--border-soft);
-    transition: 0.3s;
-}
-
-.event-item:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--fuji-red);
-}
-
-.event-item .date {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 900;
-    color: var(--fuji-red);
-    font-size: 1.3rem;
-    margin-right: 25px;
-    min-width: 60px;
-}
-
-/* --- Download Box --- */
-.download-box {
-    grid-column: span 2;
-    background: #fff;
-    border: 2px dashed #ddd;
-    text-align: center;
-    padding: 50px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.download-box i.fa-qrcode {
-    font-size: 3rem;
-    color: #ddd;
-    margin-bottom: 15px;
-}
-
-.btn-outline {
-    display: inline-block;
-    padding: 14px 35px;
-    border: 2px solid var(--fuji-red);
-    color: var(--fuji-red);
-    font-weight: 700;
-    border-radius: 50px;
-    margin-top: 20px;
-    transition: 0.3s;
-}
 
-.btn-outline:hover {
-    background: var(--fuji-red);
-    color: white;
-    box-shadow: 0 10px 20px rgba(196, 0, 0, 0.2);
-}
-
-/* ==================================== */
-/* --- Responsive Fixes --- */
-/* ==================================== */
-@media (max-width: 992px) {
-    .events-container { grid-template-columns: 1fr; }
-    .download-box { grid-column: span 1; }
-    .timeline-step { flex-direction: column; gap: 10px; }
-}
-/* ========================== */
-/*  Sensei Section - Floating Profile Look */
-/* ========================== */
-.sensei.section {
-    padding-top: 120px; /* Adjust this: Header height + extra breathing room */
-    scroll-margin-top: 80px; /* Ensures clicking 'Sensei' in nav doesn't cut it off */
-}
-
-/* Enhancing the 'Expert' sub-title */
-.sensei .jp-sub {
-    display: inline-block;
-    background: rgba(196, 0, 0, 0.05); /* Very faint red background */
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    border-left: 3px solid var(--fuji-red);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-.sensei-wrapper {
-    position: relative;
-    z-index: 2;
-}
-
-/* Updated Container for Floating Layout */
-.sensei-top {
-    display: flex;
-    align-items: center; /* Vertical centering */
-    justify-content: center;
-    gap: 60px; /* Healthy gap to prevent merging */
-    margin-top: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 1. Sensei Photo - Small & Floating with Cool Borders */
-.sensei-photo {
-    flex: 0 0 auto; /* Do not shrink or grow */
-    width: 280px; /* Reduced size */
-    height: 280px; /* Square shape for profile look */
-    position: relative;
-    border-radius: 50%; /* Make it round (circle look) or use large border-radius like 30px for "squircle" */
-    
-    /* Layered Box Shadow for "depth" */
-    box-shadow: 
-        0 10px 30px -5px rgba(0, 0, 0, 0.1),
-        0 0 0 10px rgba(255, 255, 255, 1), /* The white inner 'border' */
-        0 0 0 12px #eeeeee; /* The light gray outer border */
-    
-    overflow: visible; /* Need this for the cool border-elements to show */
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Optional squircle look if you prefer that over a circle:
-.sensei-photo {
-    border-radius: 30px;
-}
- 
-
-/* The actual image inside the 'container' */
-.sensei-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 50%; /* Match parent radius */
-    filter: sepia(10%) contrast(105%); /* Subtle professional grading */
-    transition: transform 0.6s ease;
-}
-
-/* Cool Hover Styling */
-.sensei-photo:hover {
-    transform: translateY(-10px) rotate(-1deg);
-    box-shadow: 
-        0 20px 40px -8px rgba(0, 0, 0, 0.15),
-        0 0 0 10px rgba(255, 255, 255, 1),
-        0 0 0 12px var(--fuji-red); /* Outer border turns red on hover */
-}
-
-.sensei-photo:hover img {
-    transform: scale(1.05);
-}
-
-/* Cool CSS-only decorative elements (optional but adds 'cool' factor) */
-.sensei-photo::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 30px;
-    height: 30px;
-    border-top: 5px solid var(--fuji-red);
-    border-left: 5px solid var(--fuji-red);
-    border-radius: 5px;
-}
-
-.sensei-photo::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid #111;
-    border-right: 5px solid #111;
-    border-radius: 5px;
-}
-
-/* 2. Sensei Greeting - The Text Box (Separate Container) */
-.sensei-greeting {
-    flex: 1; /* Takes remaining space */
-    background: rgba(255,255,255,0.05); /* Very faint background if on light bg */
-    border: 1px solid #f0f0f0;
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.03); /* Subtle depth */
-    position: relative;
-    background: #ffffff;
-}
-
-.sensei-greeting h3 {
-    font-size: 1.8rem;
-    color: var(--fuji-red);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.sensei-greeting p {
-    color: #555;
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-.sensei-greeting blockquote {
-    margin-top: 30px;
-    padding: 20px;
-    background: #fff5f5;
-    border-left: 5px solid var(--fuji-red);
-    border-radius: 0 10px 10px 0;
-    font-style: italic;
-    color: #333;
-    font-weight: 500;
-}
-
-/* 3. Audio Player (Separate styling) */
-/* Making the audio small and clean, placed below the greeting text */
-.sensei-voice {
-    margin-top: 30px;
-    text-align: left;
-}
+/* ================= STATS ================= */
+/* ================= STATS BAR UPGRADED ================= */
 
-.sensei-voice audio {
-    height: 35px;
-    width: 200px; /* Small player */
+.stats-bar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 60px 0; /* Balanced padding */
 }
 
-/* Keep the stats styling from previous suggestion for consistency */
 .sensei-stats {
     display: flex;
-    justify-content: center;
-    gap: 100px;
-    margin-top: 60px;
-    border-top: 1px solid #eee;
-    padding-top: 40px;
+    justify-content: space-around; /* Spreads them evenly */
+    align-items: center;
+    flex-wrap: wrap; /* Good for mobile */
+    gap: 40px;
 }
 
 .stat {
     text-align: center;
+    position: relative;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
 }
 
+/* The Animated Number */
 .stat h3 {
-    font-size: 3rem;
-    color: #111;
+    font-size: 3.5rem; /* Larger, bolder impact */
     font-weight: 800;
+    color: var(--fuji-red);
     margin-bottom: 5px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    display: inline-block;
 }
 
+/* The "+" Sign - Clean & Professional */
 .stat h3::after {
     content: '+';
-    color: var(--fuji-red);
-    margin-left: 2px;
+    font-size: 2rem;
+    vertical-align: super;
+    margin-left: 4px;
+    color: var(--dark-text); /* Darker + for a sophisticated look */
+    opacity: 0.6;
 }
 
+/* The Label Text */
 .stat p {
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #888;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
 }
-
 
 /* Decorative Divider (Desktop Only) */
 @media (min-width: 769px) {
@@ -923,343 +389,135 @@ body {
         font-size: 2.5rem;
     }
 }
-
-/* End of the sensei section */
-/* ============================ */
-
-
-
-/* ========================= */
-/* students Feedback section */
-/* ======================== */
-/* --- Feedback Section Background Decoration --- */
-.feedback {
-    position: relative;
-    padding: 100px 0;
-    background: #fff; /* Clean white background to make images pop */
-}
-
-/* Vertical "Voices" Watermark */
-.feedback::before {
-    content: "皆さんの声"; /* "Everyone's Voices" */
-    position: absolute;
-    top: 50px;
-    right: 30px;
-    writing-mode: vertical-rl;
-    font-size: 5rem;
-    font-weight: 900;
-    color: rgba(0,0,0,0.02);
-    pointer-events: none;
-}
-
-.feedback-grid {
+/* ================= GRID ================= */
+/* ================= GRID & CAROUSEL SYSTEM ================= */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
-    position: relative;
+}
+
+.carousel-wrapper {
+     position: relative;
     z-index: 1;
+    margin: 40px 0;
+    padding: 20px 0;
 }
-
-/* --- The Feedback Card Effect --- */
-.feedback-grid img {
-    width: 100%;
-    border-radius: 0; /* Sharp edges for a modern look */
-    border: 1px solid #eee;
-    padding: 10px; /* Creates a "polaroid" or framed look */
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: zoom-in;
-}
-
-/* Hover: The "Stamp of Approval" Effect */
-.feedback-grid img:hover {
-    transform: translateY(-10px) rotate(2deg); /* Organic slight tilt */
-    border-color: var(--fuji-red);
-    box-shadow: 0 20px 40px rgba(196, 0, 0, 0.1);
-}
-
-/* Adding a Decorative "Quote" icon to the grid */
-.feedback-grid::after {
-    content: "\f10d"; /* FontAwesome Quote Icon */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    top: -40px;
-    left: 0;
-    font-size: 3rem;
-    color: var(--fuji-red);
-    opacity: 0.1;
-}
-
-/* --- Optional: Label for the screenshots --- */
-/* This adds a tiny red "Verified" tab to the corner of each image */
-.feedback-item {
-    position: relative;
-}
-
-/* Small Japanese Badge "Verified" */
-.feedback-grid img::after {
-    content: "合格"; /* "Pass/Verified" */
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--fuji-red);
-    color: white;
-    font-size: 10px;
-    padding: 2px 8px;
-    opacity: 0;
-    transition: 0.3s;
-}
-/* ===================================== */
-/* --- Projects Layout Refinement --- */
-
-.projects {
-    position: relative;
-    padding: 100px 0;
-    overflow: hidden;
-}
-
-/* Large Background Watermark */
-.projects::after {
-    content: "作品"; 
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
-    font-size: 15rem;
-    font-weight: 900;
-    color: rgba(196, 0, 0, 0.03); /* Faint Fuji Red */
-    z-index: -1;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 35px;
-}
-
-/* --- The Modern Origami Card --- */
-.project-card {
-    background: #ffffff;
-    border-radius: 0px; /* Sharp Japanese edges look more "Pro" */
-    overflow: hidden;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.05); /* Block shadow style */
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
-    border: 1px solid #eee;
-}
-
-/* Corner Fold Effect */
-.project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-width: 0 40px 40px 0;
-    border-style: solid;
-    border-color: #f7f7f7 #f7f7f7 rgba(0,0,0,0.1) rgba(0,0,0,0.1);
-    z-index: 5;
-    transition: 0.4s;
-}
-
-.project-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0px var(#3a3a3a);
-    border-color: var(--fuji-red);
-}
-
-.project-card:hover::before {
-    border-color: #fff #fff var(--fuji-red) var(--fuji-red);
-}
-
-/* --- Image & Level Hover --- */
-.project-img {
-    height: 200px;
-    position: relative;
-    background: #111;
-}
-
-.project-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    transition: 0.6s ease;
-}
-
-.project-card:hover .project-img img {
-    transform: scale(1.1);
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-/* Level Title - Styled like a Japanese Ticket */
-.project-level {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--fuji-red);
-    color: white !important;
-    padding: 10px 20px;
-    font-size: 2rem;
-    font-weight: 900;
-    opacity: 0;
-    z-index: 10;
-    transition: 0.4s;
-    border: 2px solid white;
-}
-
-.project-card:hover .project-level {
-    opacity: 1;
-}
-
-/* --- Text & Arabic Typography --- */
-.project-info {
-    padding: 18px;
-    text-align: right; /* Aligns for Arabic content */
-}
-
-.project-info h3 {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-size: 1.2rem;
-    color: #111;
-    margin-bottom: 12px;
-    text-align: left; /* Keep titles left if they are English */
-    border-left: 4px solid var(--fuji-red);
-    padding-left: 10px;
-}
-
-.project-info p {
-    font-family: 'Noto Sans JP', 'Arial', sans-serif; /* Add a clean Arabic-friendly font if needed */
-    font-size: 0.95rem;
-    line-height: 1.2;
-    color: #444;
-    direction: rtl; /* Proper Arabic direction */
-    margin-bottom: 20px;
-}
-
-.project-info .btn {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    background: #111;
-    color: #fff;
-    padding: 12px;
-    border-radius: 0;
-    font-weight: 700;
-    letter-spacing: 2px;
-    transition: 0.3s;
-}
-
-.project-card:hover .project-info .btn {
-    background: var(--fuji-red);
-}
-
-/* Seigaiha Pattern overlay on hover */
-.project-card::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 200px;
-    background-image: url('https://www.transparenttextures.com/patterns/seigaiha.png');
-    opacity: 0;
-    transition: 0.4s;
-    pointer-events: none;
-}
-
-.project-card:hover::after {
-    opacity: 0.1;
-}
-/* =========================== */
-/* Reel / Video Showcase (Horizontal Scroll) */
-/* =========================== */
-/* --- Video Showcase Container --- */
-.video-showcase {
-    background: #f3f3f3d5; /* Darker background for "Cinema" feel */
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Vertical Japanese Watermark: "Cinema/Moving Images" */
-.video-showcase::after {
-    content: "動画ギャラリー"; 
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    writing-mode: vertical-rl;
-    font-size: 4rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
-    pointer-events: none;
-}
-
-.video-carousel-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 40px 0;
-    /* Glassmorphism effect on dark */
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    scroll-behavior: smooth;
-}
-
-/* Horizontal row layout */
-.video-carousel {
+/* Track: Fixed for Responsiveness */
+.carousel-track {
     display: flex;
     gap: 25px;
-    padding: 0 40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 50px 20px;
+    align-items: stretch;
+    perspective: 1200px;
+    -webkit-overflow-scrolling: touch; /* Smooth mobile swipe */
 }
 
-/* --- The "Cinema" Video Card --- */
-.video-carousel video {
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+/* The Modern 3D Card */
+.carousel-track .card, .grid .card {
+    width: 300px;
+    min-height: 300px;
     flex: 0 0 auto;
-    height: 400px; /* Slightly taller for more impact */
-    border-radius: 15px;
-    border: 1px solid #ffffff1a;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    filter: brightness(0.8); /* Dimmed by default */
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    padding: 40px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.video-carousel video:hover {
-    transform: scale(1.02) translateY(-10px);
-    filter: brightness(1.1); /* Lights up on hover */
+/* 3D Hover Effect */
+.carousel-track .card:hover, .grid .card:hover {
+    transform: translateY(-15px) rotateX(4deg) scale(1.02);
     border-color: var(--fuji-red);
-    box-shadow: 0 30px 60px rgba(196, 0, 0, 0.3);
+    box-shadow: 0 30px 60px rgba(196, 0, 0, 0.15);
 }
 
-/* --- Custom Scrollbar (Sleeker) --- */
-.video-carousel-container::-webkit-scrollbar {
-    height: 8px; /* Thinner is more modern */
+/* Red Accent Line */
+.carousel-track .card::after, .grid .card::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: var(--fuji-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
-.video-carousel-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    margin: 0 100px; /* Gives the scrollbar space at the ends */
+.carousel-track .card:hover::after, .grid .card:hover::after {
+    transform: scaleX(1);
 }
 
-.video-carousel-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(to right, #600, var(--fuji-red), #600);
-    border-radius: 10px;
+/* Parallax Text */
+.card h3, .card p {
+    transform: translateZ(30px);
+    transition: transform 0.5s ease;
 }
 
-/* --- Mobile Fixes --- */
-@media(max-width:768px){
-    .video-carousel video {
-        height: 280px;
+.card:hover h3 {
+    color: var(--fuji-red);
+    transform: translateZ(50px);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.3);
+    z-index: 100 !important; 
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    background: transparent;
+    border: none;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    color: var(--fuji-red);
+    background: linear-gradient(to var(--dir, left), rgba(255,255,255,0.8), transparent);
+}
+
+.carousel-btn.left { left: 0; --dir: right; }
+.carousel-btn.right { right: 0; --dir: left; }
+
+/* ================= RESPONSIVE FIX ================= */
+@media (max-width: 768px) {
+    .carousel-track {
+        gap: 15px;
+        padding: 30px 10px;
     }
-    .video-showcase::after {
-        font-size: 2rem;
-        left: 5px;
+    
+    .carousel-track .card {
+        width: 280px; /* Fixed width for mobile stability */
+        min-height: 250px;
+        padding: 30px 20px;
+        transform: none !important; /* Disable 3D on mobile for performance */
     }
-}
 
+    .carousel-btn {
+        display: none; /* Hide buttons; users prefer swiping on mobile */
+    }
+
+    .card h3 { font-size: 1.2rem; }
+}
 /* ================= FOOTER ================= */
 
 .footer {
@@ -1365,265 +623,202 @@ body {
     color: #ff3c3c;
     font-weight: 600;
 }
-/* =========================================================== */
-/* --- Desktop (PC) View --- */
+
+/* ======================================== */
+
+/* ======================================================= */
+/* --- Desktop: Hide menu btn --- */
 .menu-btn {
-    display: none; /* This hides the ☰ on PC */
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 1001; /* Stay above the menu */
 }
 
 /* --- Mobile View --- */
 @media (max-width: 768px) {
     .menu-btn {
-        display: block; /* This makes it appear ONLY on phones */
-        cursor: pointer;
-        font-size: 28px;
-        color: #111;
-        z-index: 1001;
-        position: relative;
+        display: block; /* Show the button on phones */
     }
 
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* Hidden off-screen */
+        right: -100%; /* Hide it off-screen to the right */
         height: 100vh;
         width: 250px;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(10, 10, 10, 0.98); /* Dark Japanese aesthetic */
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        display: flex; 
-        transition: 0.4s ease;
-    }
-
-    .nav-links.active {
-        right: 0; /* Slides in when clicked */
-    }
-}
-/* ========================================================= */
-/* =========================================================== */
-/* --- SUPER RESPONSIVE MOBILE OVERRIDES --- */
-/* =========================================================== */
-
-@media (max-width: 768px) {
-    /* 1. Hero Section Adjustments */
-    .hero-content h1 {
-        font-size: 36px; /* Shrink title so it doesn't wrap weirdly */
-        letter-spacing: 1px;
-    }
-    
-    .hero-content p {
-        font-size: 16px;
-        padding: 0 10px;
-    }
-
-    /* 2. About Section: Stack the image and text */
-    .about-grid {
-        grid-template-columns: 1fr; /* Stack vertically */
         gap: 30px;
-        text-align: center;
+        transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 
-    .brush-title {
-        font-size: 2rem;
+    /* This is what the JavaScript triggers */
+    .nav-links.active {
+        right: 0; /* Slide into view */
     }
 
-    .side-text {
-        display: none; /* Hide vertical side text on mobile to save space */
-    }
-
-    /* 3. Sensei Section Improvements */
-    .sensei-top {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .sensei-greeting {
-        padding: 30px 20px;
-        border-radius: 15px;
-    }
-
-    .sensei-stats {
-        flex-direction: column; /* Stack stats vertically */
-        gap: 40px;
-    }
-
-    /* 4. Timeline & Events */
-    .modern-timeline {
-        padding: 0 10px;
-    }
-
-    .timeline-step {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .step-num {
-        font-size: 2.5rem;
-        flex: none;
-    }
-
-    /* 5. Events & Downloads */
-    .events-container {
-        grid-template-columns: 1fr;
-    }
-
-    .event-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .event-item .date {
-        margin-right: 0;
-    }
-
-    .download-box {
-        padding: 30px 15px;
-    }
-
-    /* 6. Footer Adjustments */
-    .footer::after {
-        font-size: 3rem; /* Shrink the watermark */
-        opacity: 0.01;
-    }
-
-    .footer-social {
-        flex-wrap: wrap; /* Prevent icons from going off-screen */
-        justify-content: center;
+    .nav-links .book-btn {
+        margin-left: 0; /* Reset desktop margin */
     }
 }
 
-/* Extra Small Phones (iPhone SE etc.) */
-@media (max-width: 480px) {
-    .container {
-        width: 95%; /* Use more screen width */
-    }
-    
-    .logo span {
-        font-size: 0.9rem; /* Prevent logo text from overlapping menu */
-    }
+/* ================================================================ */
+/* ========================= */
+/* Modal Overlay */
+/* ========================= */
 
-    .benefit-card {
-        padding: 15px;
-    }
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(208, 208, 208, 0.071);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
-/* ================================================= */
 
-/* ==================================== */
-/* ---  Training Program Styling --- */
-/* ==================================== */
-
-.training-showcase {
+/* Modal Box */
+.modal-content {
     background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
     position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
 }
 
-.training-banner {
+@keyframes fadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Teacher Grid */
+.teacher-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.teacher-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
     background: #fdfdfd;
-    padding: 60px;
-    border-radius: 30px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
 }
 
-.program-label {
-    color: var(--fuji-red);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.85rem;
+.teacher-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #ff4d4d; 
+}
+
+.teacher-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 15px;
+    border: 2px solid #fb3e3e;
+    box-shadow: 0 10px 20px rgba(205, 67, 67, 0.1);
 }
 
-.training-content h3 {
-    font-size: 2.2rem;
+.teacher-info h3 { margin-bottom: 10px; }
+.teacher-info p { font-size: 0.9rem; color: #666; margin: 5px 0; }
+/* ================================== */
+/* Training Modal Specifics */
+/* ====================================== */
+.training-theme h2 {
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.modal-intro {
+    font-size: 0.9rem;
+    color: #666;
     margin-bottom: 20px;
-    color: var(--dark-text);
 }
 
-.training-features {
-    list-style: none;
-    margin: 25px 0 35px 0;
-}
-
-.training-features li {
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.training-features i {
-    color: var(--fuji-red);
-}
-
-.training-cta {
-    background: #111 !important;
-    padding: 18px 40px !important;
-}
-
-.training-cta:hover {
-    background: var(--fuji-red) !important;
-}
-
-/* --- Visual Side --- */
-.training-visual {
-    position: relative;
+.single-option {
     display: flex;
     justify-content: center;
 }
-
-.visual-card {
+.training-card {
     position: relative;
-    width: 320px;
-    height: 400px;
-    border-radius: 20px;
+    border: 2px solid #2d3436 !important;
+    max-width: 420px;
+    background: #fff;
     overflow: hidden;
-    box-shadow: 20px 20px 0px rgba(196, 0, 0, 0.05);
+    padding: 15px; /* Reduced from 20px to bring elements closer to the edges */
 }
 
-.visual-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.floating-badge {
+.training-badge {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: var(--fuji-red);
+    top: 33px;
+    right: -40px;
+    background: #ff4d4d;
     color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    box-shadow: 0 10px 20px rgba(196, 0, 0, 0.3);
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-/* Responsive Fix */
-@media (max-width: 992px) {
-    .training-banner {
-        grid-template-columns: 1fr;
-        padding: 40px 25px;
-        text-align: center;
-    }
-    .training-features {
-        display: inline-block;
-        text-align: left;
-    }
-    .training-visual {
-        margin-top: 30px;
-    }
+.label-trained {
+    display: inline-block;
+    background: #e1f5fe;
+    color: #039be5;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.program-details {
+    text-align: left;
+    margin: 15px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.program-details p {
+    font-size: 0.85rem !important;
+    margin: 8px 0 !important;
+    color: #444;
+}
+
+.program-details i {
+    color: #ff4d4d;
+    width: 20px;
+}
+
+.training-btn {
+    width: 100%;
+    background: #f83939dd; /* Dark professional button */
+    border-radius: 8px;
+}
+
+.training-btn:hover {
+    background: #000;
 }
 .dev-link { text-decoration: none; transition: 0.3s; color: var(--fuji-red); font-weight: 600; letter-spacing: 2px; } .dev-link:hover { color: #fff; text-shadow: 0 0 8px var(--fuji-red); }
