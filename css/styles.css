@@ -217,10 +217,6 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding-top:80px;
-
-background:
-linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.8)),
-url("https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
 }
 
 .hero-content h1{
@@ -1393,3 +1389,230 @@ body {
         right: 0; /* Slides in when clicked */
     }
 }
+/* ========================================================= */
+/* =========================================================== */
+/* --- SUPER RESPONSIVE MOBILE OVERRIDES --- */
+/* =========================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Hero Section Adjustments */
+    .hero-content h1 {
+        font-size: 36px; /* Shrink title so it doesn't wrap weirdly */
+        letter-spacing: 1px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    /* 2. About Section: Stack the image and text */
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .brush-title {
+        font-size: 2rem;
+    }
+
+    .side-text {
+        display: none; /* Hide vertical side text on mobile to save space */
+    }
+
+    /* 3. Sensei Section Improvements */
+    .sensei-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .sensei-greeting {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .sensei-stats {
+        flex-direction: column; /* Stack stats vertically */
+        gap: 40px;
+    }
+
+    /* 4. Timeline & Events */
+    .modern-timeline {
+        padding: 0 10px;
+    }
+
+    .timeline-step {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .step-num {
+        font-size: 2.5rem;
+        flex: none;
+    }
+
+    /* 5. Events & Downloads */
+    .events-container {
+        grid-template-columns: 1fr;
+    }
+
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .event-item .date {
+        margin-right: 0;
+    }
+
+    .download-box {
+        padding: 30px 15px;
+    }
+
+    /* 6. Footer Adjustments */
+    .footer::after {
+        font-size: 3rem; /* Shrink the watermark */
+        opacity: 0.01;
+    }
+
+    .footer-social {
+        flex-wrap: wrap; /* Prevent icons from going off-screen */
+        justify-content: center;
+    }
+}
+
+/* Extra Small Phones (iPhone SE etc.) */
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Use more screen width */
+    }
+    
+    .logo span {
+        font-size: 0.9rem; /* Prevent logo text from overlapping menu */
+    }
+
+    .benefit-card {
+        padding: 15px;
+    }
+}
+/* ================================================= */
+
+/* ==================================== */
+/* ---  Training Program Styling --- */
+/* ==================================== */
+
+.training-showcase {
+    background: #fff;
+    position: relative;
+}
+
+.training-banner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+    background: #fdfdfd;
+    padding: 60px;
+    border-radius: 30px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.program-label {
+    color: var(--fuji-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.training-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+}
+
+.training-features {
+    list-style: none;
+    margin: 25px 0 35px 0;
+}
+
+.training-features li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.training-features i {
+    color: var(--fuji-red);
+}
+
+.training-cta {
+    background: #111 !important;
+    padding: 18px 40px !important;
+}
+
+.training-cta:hover {
+    background: var(--fuji-red) !important;
+}
+
+/* --- Visual Side --- */
+.training-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-card {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px rgba(196, 0, 0, 0.05);
+}
+
+.visual-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--fuji-red);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 10px 20px rgba(196, 0, 0, 0.3);
+}
+
+/* Responsive Fix */
+@media (max-width: 992px) {
+    .training-banner {
+        grid-template-columns: 1fr;
+        padding: 40px 25px;
+        text-align: center;
+    }
+    .training-features {
+        display: inline-block;
+        text-align: left;
+    }
+    .training-visual {
+        margin-top: 30px;
+    }
+}
+.dev-link { text-decoration: none; transition: 0.3s; color: var(--fuji-red); font-weight: 600; letter-spacing: 2px; } .dev-link:hover { color: #fff; text-shadow: 0 0 8px var(--fuji-red); }
