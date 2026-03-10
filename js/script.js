@@ -30,13 +30,6 @@ const phrasesEN = [
   "Step into the world of Japanese language with ease."
 ];
 
-const phrasesJP = [
-  "無料の5日間集中コースに参加して、自信を持って日本語を話しましょう。",
-  "専門家の指導で日本語の基礎をすばやく習得しましょう。",
-  "わずか5日間で日本文化と言語を体験しましょう。",
-  "やさしく日本語の世界へ踏み出しましょう。"
-];
-
 let phrases = phrasesEN;
 let phraseIndex = 0;
 let charIndex = 0;
@@ -82,19 +75,42 @@ typeWriter();
 // 2. COUNTER ANIMATION
 // ================================================
 const counters = document.querySelectorAll(".counter");
-const speed = 200;
+
 counters.forEach(counter => {
     const updateCount = () => {
         const target = +counter.getAttribute("data-target");
         const count = +counter.innerText;
-        const increment = target / speed;
+        
+        // 1. Calculate a smooth increment 
+        // We use Math.max to ensure it always moves at least by 1
+        const increment = Math.ceil(target / 50); 
+
+        // 2. Dynamic Speed Logic
+        let delay;
+        if (target <= 10) {
+            delay = 310; // Very slow (0.5s) for small numbers like 2 or 10
+        } else if (target > 50) {
+            delay = 80;  // Very speedy for high numbers
+        } else {
+            delay = 100; // Balanced speed for numbers in between
+        }
+
         if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 20);
+            // Update the text
+            counter.innerText = count + increment;
+            
+            // If we accidentally go over target due to increment, fix it
+            if (+counter.innerText > target) {
+                counter.innerText = target;
+            }
+
+            // Call the function again with our dynamic delay
+            setTimeout(updateCount, delay);
         } else {
             counter.innerText = target;
         }
     };
+    
     updateCount();
 });
 
@@ -239,32 +255,74 @@ document.addEventListener('DOMContentLoaded', () => {
     dojoObserver.observe(DojoSection);
 });
 
-// ================================================
-// 6. INFINITE LOGO/CARD CAROUSEL 
+// =// ================================================
+// 6. FIXED INFINITE CAROUSEL + WORKING BUTTONS
 // ================================================
 const track = document.querySelector(".carousel-track");
-if (track) {
-    const btnLeft = document.querySelector(".carousel-btn.left");
-    const btnRight = document.querySelector(".carousel-btn.right");
-    let isHovered = false;
+const btnLeft = document.querySelector(".carousel-btn.left");
+const btnRight = document.querySelector(".carousel-btn.right");
 
+if (track) {
+    let isPaused = false;
+    let scrollAmount = 0;
+
+    // 1. Clone cards for the infinite loop
     const cards = Array.from(track.children);
     cards.forEach(card => track.appendChild(card.cloneNode(true)));
 
-    track.addEventListener("mouseenter", () => isHovered = true);
-    track.addEventListener("mouseleave", () => isHovered = false);
-
-    function animateCarousel() {
-        if (!isHovered) {
+    // 2. The Auto-Scroll Function
+    function step() {
+        if (!isPaused) {
             track.scrollLeft += 1;
-            if (track.scrollLeft >= track.scrollWidth / 2) track.scrollLeft = 0;
+            if (track.scrollLeft >= track.scrollWidth / 2) {
+                track.scrollLeft = 0;
+            }
         }
-        requestAnimationFrame(animateCarousel);
+        requestAnimationFrame(step);
     }
-    animateCarousel();
+    requestAnimationFrame(step);
 
-    if (btnLeft && btnRight) {
-        btnLeft.addEventListener("click", () => track.scrollLeft -= 300);
-        btnRight.addEventListener("click", () => track.scrollLeft += 300);
-    }
+    // 3. Button Logic (The Fix)
+    const handleButtonClick = (direction) => {
+        isPaused = true; // Stop auto-scroll so button can work
+        const jump = 330; // Card width + gap
+        
+        track.scrollBy({
+            left: direction === 'left' ? -jump : jump,
+            behavior: 'smooth'
+        });
+
+        // Resume auto-scroll after 2 seconds of inactivity
+        setTimeout(() => { isPaused = false; }, 2000);
+    };
+
+    if (btnLeft) btnLeft.addEventListener("click", () => handleButtonClick('left'));
+    if (btnRight) btnRight.addEventListener("click", () => handleButtonClick('right'));
+
+    // 4. Pause on Hover
+    track.addEventListener("mouseenter", () => isPaused = true);
+    track.addEventListener("mouseleave", () => isPaused = false);
 }
+    // ===============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('teacherModal');
+    const registerBtn = document.getElementById('register-btn'); // Matches the new ID
+    const closeBtn = document.querySelector('.close-modal');
+
+    if(registerBtn) {
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+    }
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
