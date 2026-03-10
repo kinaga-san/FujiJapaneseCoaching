@@ -900,20 +900,31 @@ body {
     color: #888;
 }
 
-/* Mobile Fixes for Floating Layout */
-@media (max-width: 850px) {
-    .sensei-top {
-        flex-direction: column;
-        gap: 30px;
+
+/* Decorative Divider (Desktop Only) */
+@media (min-width: 769px) {
+    .stat:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, var(--border-soft), transparent);
     }
-    .sensei-greeting {
-        padding: 40px 25px;
+}
+
+/* Mobile Tuning */
+@media (max-width: 768px) {
+    .sensei-stats {
+        gap: 20px;
     }
-    .sensei-photo {
-        width: 200px;
-        height: 200px;
+    .stat h3 {
+        font-size: 2.5rem;
     }
-}/* End of the sensei section */
+}
+
+/* End of the sensei section */
 /* ============================ */
 
 
