@@ -21,9 +21,9 @@
         <nav class="nav-links">
             <a href="index.html">Fuji</a>
             <a href="about.html">About</a>
-            <a href="dojo.html">dojo</a>
+            <a href="Dojo.html">Dojo</a>
             <a href="sensei.html">Sensei</a>
-            <a href="https://docs.google.com/forms/..." class="book-btn">Book a lesson</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfliyLvwOg9tHByiZltqmypr33xbGVwbjqziv8R7DSxpZICjg/viewform?usp=sf_link" class="book-btn">Book a lesson</a>
         </nav>
     </div>
 </header>
@@ -34,10 +34,10 @@
         <p class="hero-subtext" id="rotating-text">Join our FREE 5-day crash course and start speaking Japanese with confidence.</p>
         
         <div class="hero-actions">
-            <a href="#register" class="btn">Register Now – Free Access</a>
+            <a href="javascript:void(0)" class="btn" id="register-btn"> Become a Teacher – Training Probram</a>
             <div class="hero-stat-mini">
                 <strong class="counter" data-target="500">0</strong>
-                <span>Students joined</span>
+                <span>+Students joined</span>
             </div>
         </div>
     </div>
@@ -52,8 +52,12 @@
             </div>
             <div class="stat">
                 <h3 class="counter" data-target="500">0</h3>
-                <p>Success Stories</p>
+                <p>Students Trained</p>
             </div>
+           <div class="stat">
+                 <h3 class="counter" data-target="6">0</h3>
+                 <p>訓練された先生 (Trained Senseis)</p> 
+           </div>
         </div>
     </div>
 </section>
@@ -87,6 +91,34 @@
         </div>
     </div>
 </section>
+<!-- ==========================register===================== -->
+<div id="teacherModal" class="modal-overlay">
+    <div class="modal-content training-theme">
+        <span class="close-modal">&times;</span>
+        <span class="jp-sub">教員養成プログラム</span>
+        <h2>Teacher Training Program</h2>
+        <p class="modal-intro">Select your preferred training path to begin your journey as a certified coach.</p>
+        
+        <div class="teacher-grid single-option">
+            <div class="teacher-card training-card">
+                <div class="training-badge">Professional Track</div>
+                <div class="teacher-img">
+                    <img src="images/yasmine.jpg" alt="Yasmine Sensei">
+                </div>
+                <div class="teacher-info">
+                    <h3>One-on-One Training</h3>
+                    <span class="label-trained">Trained Teacher Program</span>
+                    <div class="program-details">
+                        <p><i class="fas fa-chalkboard-teacher"></i> Personalized Mentorship</p>
+                        <p><i class="fas fa-certificate"></i> Certification Included</p>
+                        <p><i class="fas fa- hourglass-half"></i> Flexible Schedule</p>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfliyLvwOg9tHByiZltqmypr33xbGVwbjqziv8R7DSxpZICjg/viewform?usp=sf_link" class="btn training-btn" target="_blank">Register for Program</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- =============================================== -->
  <!-- =================== FOOTER======================= -->
 <footer class="footer">
@@ -100,30 +132,35 @@
 
 <div class="footer-social">
 
-<a href="#" class="social-icon">
+<a href="https://www.facebook.com/share/18FfwqDDXB/" class="social-icon" target="_blank">
 <i class="fab fa-facebook-f"></i>
 </a>
 
-<a href="#" class="social-icon">
+<a href="https://www.instagram.com/fuji.forjapanesecoaching?igsh=aGVtMzJmOGIxbjli" class="social-icon" target="_blank" >
 <i class="fab fa-instagram"></i>
 </a>
 
-<a href="#" class="social-icon">
+<a href="https://t.me/%2Bd2MMLCcc-bA4NTU0?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGn0mXFn7Lt8Mhagv6nnR4ngmQQeOTekeOFQygSRZqmJdQWEm0ef4AXg7FGAq4_aem_ubkTF_bpvjOEiiTdHKcyLg" class="social-icon">
 <i class="fab fa-youtube"></i>
 </a>
 
-<a href="https://wa.me/213XXXXXXXXX" class="social-icon" target="_blank">
+<a href="https://wa.me/2130797305798" class="social-icon" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<a href="https://t.me/YOURUSERNAME" class="social-icon" target="_blank">
+<a href="https://t.me/%2Bd2MMLCcc-bA4NTU0?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGn0mXFn7Lt8Mhagv6nnR4ngmQQeOTekeOFQygSRZqmJdQWEm0ef4AXg7FGAq4_aem_ubkTF_bpvjOEiiTdHKcyLg" class="social-icon" target="_blank">
 <i class="fab fa-telegram"></i>
 </a>
 
 </div>
 
-<p>© 2026 Fuji Japanese Coaching</p>
-<p class="dev">Website developed by <span>気長</span></p>
+<p>© 2026 Fuji Japanese Coaching. All Rights Reserved. Full legal ownership and intellectual property belong to the author.</p>
+<p class="dev">
+    Website developed by 
+    <a href="https://www.instagram.com/b.essadiq?igsh=aGVuYjFxcDhzNTFn" target="_blank" class="dev-link">
+        <span>気長</span>
+    </a>
+</p>
 
 </div>
 
@@ -131,6 +168,4 @@
 <script src="js/script.js"  defer></script>
 <script src="js/translate.js" defer></script>
 </body>
-
 </html>
-
